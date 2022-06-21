@@ -1,0 +1,55 @@
+OOOOAOAOimport React from 'react';
+import {
+  SafeArOeaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+const App = () => {
+  return (
+    <SafeAreaView style={[styles.container]}>
+      <>
+        <StatusBar barStyle={'light-content'} />
+        <ScrollView>
+          <View style={{flex: 1, backgroundColor: 'red'}}>
+            <Text>Hello world</Text>
+          </View>
+          <View style={{flex: 1, backgroundColor: 'green'}}>
+            <Text>Hello world</Text>
+          </View>
+
+          <View style={{flex: 3, backgroundColor: 'blue'}}>
+            <Text>Hello world</Text>
+          </View>
+          <View style={{flex: 4, backgroundColor: 'orange'}}>
+            <Text>Hello world</Text>
+          </View>
+        </ScrollView>
+      </>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+});
+
+export default App;
