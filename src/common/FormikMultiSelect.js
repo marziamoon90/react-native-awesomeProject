@@ -45,16 +45,26 @@ export default function FormikMultiSelect({
             <ScrollView style={{height: 200}}>
               {fakeDataMultiDDL.map(item => (
                 <TouchableOpacity
-                  onPress={() =>
-                    formikprops.setFieldValue(`${name}`, [
-                      ...(formikprops.values[name] || []),
-                      {
-                        value: item.value,
-                        label: item.label,
-                      },
-                    ])
-                  }>
-                  {console.log(formikprops.values[name])}
+                  onPress={() => {
+                    if (
+                      formikprops.values[name].some(i => i.value === item.value)
+                    ) {
+                      formikprops.setFieldValue(
+                        `${name}`,
+                        formikprops.values[name].filter(
+                          i => i.value !== item.value,
+                        ),
+                      );
+                    } else {
+                      formikprops.setFieldValue(`${name}`, [
+                        ...(formikprops.values[name] || []),
+                        {
+                          value: item.value,
+                          label: item.label,
+                        },
+                      ]);
+                    }
+                  }}>
                   <Text
                     style={
                       formikprops.values[name].some(i => i.value === item.value)
